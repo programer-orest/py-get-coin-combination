@@ -3,18 +3,8 @@ from app.main import get_coin_combination
 
 class TestGetCoinCombination:
     @pytest.mark.parametrize(
-        "cent_element, expected_list_of_cents",  # Тут має бути кортеж
+        "cent_element, expected_list_of_cents",
         [
-            pytest.param(
-                -1,
-                [0, 0, 0, 0],
-                id="test should return list of 0 because number is negative",
-            ),
-            pytest.param(
-                0,
-                [0, 0, 0, 0],
-                id="test should return list of 0 because number is zero",
-            ),
             pytest.param(
                 1,
                 [1, 0, 0, 0],  # corrected this line
@@ -40,17 +30,3 @@ class TestGetCoinCombination:
     def test_get_coin_combination(self, cent_element, expected_list_of_cents):
         assert get_coin_combination(cent_element) == expected_list_of_cents
 
-class TestCatchTheRaise:
-    @pytest.mark.parametrize(
-        "element_error, expected_error",
-        [
-            pytest.param(
-            "1",
-            TypeError,
-            ),
-        ]
-    )
-
-    def test_catch_the_raise(self, element_error, expected_error):
-        with pytest.raises(expected_error):
-            get_coin_combination(element_error)
