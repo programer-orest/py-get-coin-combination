@@ -33,5 +33,5 @@ class TestGetCoinCombination:
             ),
         ]
     )
-    def test_get_coin_combination(self, cent_element, expected_list_of_cents):
+    def test_get_coin_combination(self, cent_element: int, expected_list_of_cents:int) -> None:
         assert get_coin_combination(cent_element) == expected_list_of_cents
